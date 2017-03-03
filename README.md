@@ -1,3 +1,3 @@
-# finangle-control
+# fitr-server
 
-Experimento com MEAN stack
+Express/Mongo based project.
