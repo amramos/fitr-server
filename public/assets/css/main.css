@@ -1,0 +1,21 @@
+.list-icon {
+  align-self: center;
+  margin-right: 15px;
+}
+
+
+.list-item.selected {
+  background-color: #A8D1FF;
+}
+
+.red-foreground h3, .red-foreground h4{
+  color: #D9534F !important;
+}
+
+.green-foreground h3, .green-foreground h4{
+  color: #449D44 !important;
+}
+
+.is-shadow {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
