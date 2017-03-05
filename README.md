@@ -1,3 +1,20 @@
 # fitr-server
 
-Express/Mongo based project.
+Express/Mongodb based project.
+
+
+#running the serve
+
+npm start
+
+
+
+#routes
+
+Exercises
+´´´
+GET exercise/:exerciseId
+PUT exercise/:exerciseId
+DELETE exercise/:exerciseId
+POST exercise/
+´´´

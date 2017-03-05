@@ -15,8 +15,6 @@ var User = new Schema({
     ],
     default: 'student'
   }
-
-
 });
 
 User.plugin(passportLocalMongoose);
