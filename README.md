@@ -4,8 +4,10 @@ Express/Mongodb based project.
 
 
 #running the serve
-
 npm start
+
+#running test
+gulp test
 
 
 
