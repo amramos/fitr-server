@@ -7,7 +7,7 @@ var exports = module.exports = {};
 exports.create = function(req, res){
   console.log(' req',req.body );
   var newExercise = new Exercise({
-    studentId: req.body.studentId,
+    student: req.body.student,
     name: req.body.name,
     repetitions: req.body.repetitions,
     sets: req.body.sets,
