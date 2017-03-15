@@ -1,5 +1,13 @@
 https://docs.google.com/document/d/1niuJg5SvQckTdvIQhDYZ2MjDP7SXN3KwV6yWAkpMEPg/edit
 
+
+user: {
+  email,
+  pass,
+  name,
+  role
+}
+
 gym: {
   students: [
     id
