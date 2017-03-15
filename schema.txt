@@ -1,0 +1,67 @@
+https://docs.google.com/document/d/1niuJg5SvQckTdvIQhDYZ2MjDP7SXN3KwV6yWAkpMEPg/edit
+
+gym: {
+  students: [
+    id
+  ],
+  instructors: [
+    id
+    name
+  ]
+}
+
+
+student: {
+  objective,
+  measures: [{
+    date
+    height
+    weight
+    fat
+    date
+  }]
+  trainings: [
+    id
+  ],
+
+  history: [
+    {
+      checkin
+      first
+      last
+      stars
+      exercises: [
+        name,
+        start,
+        finish,
+        stars
+      ]
+    }
+  ]
+}
+
+training: {
+  name,
+  specialty,
+  exercises: [
+    id,
+    sets,
+    repetitions,
+    notes 
+  ]
+}
+
+equipment: {
+  image,
+  brand,
+  description,
+  exercises: [
+    name
+  ]
+}
+
+exercise: {
+  name,
+  image,
+  description
+}
