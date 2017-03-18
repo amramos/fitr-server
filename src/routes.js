@@ -8,7 +8,7 @@ var exercise = require('./api/exercise');
 
 module.exports = function(app){
   app.use('/user', user);
-  app.use('/exercise', exercise);
+  //  app.use('/exercise', exercise);
     /*
     app.post('/user/items', function(req, res) {
         Item.find({'user': req.body.user}, function(err, todos) {
