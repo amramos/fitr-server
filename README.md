@@ -19,6 +19,6 @@ gulp test
 # routes
 
 ## User
-POST /user/login
+POST /user/login      `{username, password}`
 
-POST /user/register
+POST /user/register   `{username, password}` 
