@@ -2,10 +2,18 @@
 
 Express/Mongodb based project.
 
-## running the serve
-npm start
+## DEVELOPMENT
+1º - `npm install`
 
-## running test
+2º - Instalar o [mongo](https://www.mongodb.com/) e:
+```
+$ mongod & (abre a :27017 sem bloquear o terminal)
+$ mongodb (acessa o repl)
+$ > use fitr  (cria o db fitr)
+```
+3º - `npm start`
+
+## Tests
 gulp test
 
 # routes
