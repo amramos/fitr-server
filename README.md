@@ -20,4 +20,5 @@ gulp test
 
 ## User
 POST /user/login
+
 POST /user/register
