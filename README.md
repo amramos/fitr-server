@@ -9,7 +9,9 @@ Express/Mongodb based project.
 ```
 $ mongod & (abre a :27017 sem bloquear o terminal)
 $ mongodb (acessa o repl)
-$ > use fitr  (cria o db fitr)
+$ > use fitr  (acessa o db fitr)
+$ > db.users.find()
+[{_id:....}]
 ```
 3º - `npm start`
 
