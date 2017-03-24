@@ -1,4 +1,4 @@
 module.exports = {
-  //url : process.env.MONGODB || 'mongodb://heroku:heroku123@olympia.modulusmongo.net:27017/iryjaV3u'
-  url: 'localhost:27017/fitr'
+  url : process.env.MONGODB || 'mongodb://devel:devel@ds141450.mlab.com:41450/fitr'
+  //url: 'localhost:27017/fitr'
 };
