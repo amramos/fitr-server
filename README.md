@@ -3,9 +3,17 @@
 Express/Mongodb based project.
 
 ## DEVELOPMENT
-1º - `npm install`
 
-2º - Instalar o [mongo](https://www.mongodb.com/) e:
+## 1 - Install
+
+`npm install`
+
+
+### 2 - Mongo 
+
+Local
+
+Instalar o [mongo](https://www.mongodb.com/) e:
 ```
 $ mongod & (abre a :27017 sem bloquear o terminal)
 $ mongodb (acessa o repl)
@@ -13,7 +21,12 @@ $ > use fitr  (acessa o db fitr)
 $ > db.users.find()
 [{_id:....}]
 ```
-3º - `npm start`
+
+mLab
+`mongodb://devel:devel@ds141450.mlab.com:41450/fitr`
+
+### 3 - Run
+`npm start`
 
 ## Tests
 gulp test
