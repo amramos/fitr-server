@@ -1,20 +1,12 @@
-var Exercise = require('../exercise.model.js');
-var mongoose = require('mongoose');
-var passport = require('passport');
-var exports = module.exports = {};
-
+const Exercise = require('../exercise.model.js');
+const mongoose = require('mongoose');
+const passport = require('passport');
 
 exports.create = function(req, res){
-  console.log(' req',req.body );
   var newExercise = new Exercise({
-    student: req.body.student,
     name: req.body.name,
-    repetitions: req.body.repetitions,
-    sets: req.body.sets,
-    group:req.body.group,
-    weekDay: req.weekDay
+    description: req.body.description
   });
-
   newExercise.save(function(err, exercise){
         if (err) {
           return res.status(500).json({err: err})
@@ -33,17 +25,15 @@ exports.show = function(req, res){
   })
 };
 
-exports.edit = function(req, res){
-  var exerciseId = req.params.exerciseId;
+exports.edit = function(req, res) {
+  const { exerciseId } = req.params
+  const { name, description } = req.body
   Exercise.findById(exerciseId, function(err, exercise){
     if (err) {
       return res.status(500).json({err: err})
     }
-        exercise.name= req.body.name;
-        exercise.repetitions= req.body.repetitions;
-        exercise.sets= req.body.sets;
-        exercise.group=req.body.group;
-        exercise.weekDay= req.weekDay;
+    exercise.name = name;
+    exercise.description = description;
 
     exercise.save(function(err, exercise){
       if (err) {
@@ -51,7 +41,6 @@ exports.edit = function(req, res){
       }
       return res.status(200).json(exercise)
     })
-
   })
 };
 
@@ -62,7 +51,7 @@ exports.delete = function(req, res){
       return res.status(500).json({err: err})
     }
     else {
-    return res.status(200).json('record deleted')
+      return res.status(200).json('record deleted')
     }
   });
 };

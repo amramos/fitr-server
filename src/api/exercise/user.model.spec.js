@@ -5,15 +5,12 @@ var sampleExercise;
 
 function genSampleExercise() {
     sampleExercise = new Exercise({
-        student: 'studentIdA',
-        name: 'supino',
-        repetitions: 10,
-        sets: 4,
-        group: 'A',
-        weekDay: 'Monday'
-    });
-    return sampleExercise;
+    "name": "supino",
+    "description": "levantamento de peso na altura do peitoral"
+  });
+  return sampleExercise;
 }
+
 describe('Business Model', function () {
     beforeEach(function () {
         genSampleExercise();
