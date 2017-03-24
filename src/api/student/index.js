@@ -1,15 +1,14 @@
-var express = require('express');
-var crud = require('./controllers/student.crud')
-var history = require('./controllers/history');
+import express from 'express'
+import * as crud from './controllers/student.crud'
+import * as history from './controllers/history'
 
-var router = express.Router();
+const router = express.Router()
 
+router.post('/:studentId/checkin', history.checkin)
 
-router.post('/:studentId/checkin', history.checkin);
-
-module.exports = {
+export default {
   create: crud.create,
   get: crud.get,
-  router: router
+  router,
 }
 

@@ -1,16 +1,14 @@
-const Training = require('../training.model.js')
-const mongoose = require('mongoose')
-const passport = require('passport')
+import Training from '../training.model'
 
-exports.create = function(req, res) {
+export function create(req, res) {
   const { name, specialty, exercises } = req.body
   const newTraining = new Training({
-    name: name,
-    specialty: specialty,
-    exercises: exercises
+    name,
+    specialty,
+    exercises,
   })
 
-  newTraining.save(function(err, training){
+  newTraining.save((err, training) => {
     if (err) {
       return res.status(500).json(err)
     }
@@ -18,9 +16,9 @@ exports.create = function(req, res) {
   })
 }
 
-exports.show = function(req, res){
+export function show(req, res) {
   const { trainingId } = req.params
-  Training.findById(trainingId, function(err, training){
+  Training.findById(trainingId, (err, training) => {
     if (err) {
       return res.status(500).json(err)
     }
@@ -28,35 +26,34 @@ exports.show = function(req, res){
   })
 }
 
-exports.edit = function(req, res) {
+export function edit(req, res) {
   const { trainingId } = req.params
   const { name, specialty, exercises } = req.body
 
-  Training.findById(trainingId, function(err, training){
+  Training.findById(trainingId, (err, training) => {
     if (err) {
-      return res.status(500).json({err})
+      return res.status(500).json(err)
     }
+
     training.name = name
     training.specialty = specialty
     training.exercises = exercises
 
-    training.save(function(err, training){
-      if (err) {
-        return res.status(500).json(err)
+    training.save((saveErr, savedTraining) => {
+      if (saveErr) {
+        return res.status(500).json(saveErr)
       }
-      return res.status(200).json(training)
+      return res.status(200).json(savedTraining)
     })
   })
 }
 
-exports.delete = function(req, res) {
-  const { trainingId } = req.params;
-  Training.remove({ _id: trainingId }, function(err) {
+export function remove(req, res) {
+  const { trainingId } = req.params
+  Training.remove({ _id: trainingId }, (err) => {
     if (err) {
       return res.status(500).json(err)
     }
-    else {
-      return res.status(200).json('record deleted')
-    }
+    return res.status(200).json('record deleted')
   })
 }

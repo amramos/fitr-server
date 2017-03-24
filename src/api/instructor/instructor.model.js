@@ -1,17 +1,15 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var User = require('../user/user.model');
+import mongoose from 'mongoose'
 
-var instructorUserSchema = new Schema(
-  {
-    gym: {
-      type: Schema.Types.ObjectId, 
-      ref: 'InstructorUser' 
-    }
+const Schema = mongoose.Schema
 
-  });
+const instructorUserSchema = new Schema({
+  gym: {
+    type: Schema.Types.ObjectId,
+    ref: 'InstructorUser'
+  }
+})
 
 
-var InstructorUser = mongoose.model('InstructorUser', gymUserSchema);
+const InstructorUser = mongoose.model('InstructorUser', instructorUserSchema)
 
-module.exports = InstructorUser;
+export default InstructorUser

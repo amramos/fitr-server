@@ -1,10 +1,11 @@
-let express = require('express');
-let router = express.Router();
-let training = require('./controllers/training.crud.js');
+import express from 'express'
+import * as training from './controllers/training.crud'
 
-router.post('/', training.create);
-router.get('/:trainingId', training.show);
-router.put('/:trainingId', training.edit);
-router.delete('/:trainingId', training.delete);
+const router = express.Router()
 
-module.exports = router;
+router.post('/', training.create)
+router.get('/:trainingId', training.show)
+router.put('/:trainingId', training.edit)
+router.delete('/:trainingId', training.remove)
+
+export default router

@@ -1,7 +1,8 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+import mongoose from 'mongoose'
 
-var trainingSchema = new Schema({
+const Schema = mongoose.Schema
+
+const trainingSchema = new Schema({
   name: String,
   specialty: String,
   exercises: [
@@ -9,11 +10,11 @@ var trainingSchema = new Schema({
       name: String,
       sets: Number,
       repetitions: Number,
-      notes: String
-    }
-  ]
-});
- 
-var Training = mongoose.model('Training', trainingSchema);
+      notes: String,
+    },
+  ],
+})
 
-module.exports = Training;
+const Training = mongoose.model('Training', trainingSchema)
+
+export default Training

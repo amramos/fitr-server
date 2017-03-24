@@ -1,14 +1,19 @@
 // set up ========================
-var express  = require('express');
-var app      = express();                               // create our app w/ express
-var mongoose = require('mongoose');                     // mongoose for mongodb
-var morgan = require('morgan');             // log requests to the console (express4)
-var database = require('./config/database');
-var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
-var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
-var cookieParser = require('cookie-parser');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+
+import express from 'express'
+import { Strategy as LocalStrategy } from 'passport-local'
+import mongoose from 'mongoose' //mongoose fro mongodb
+import morgan from 'morgan' //log requests to the console
+import bodyParser from 'body-parser' // pull information from HTML POST (express4)
+import methodOverride from 'method-override' // simulate DELETE and PUT (express4)
+import cookieParser from 'cookie-parser'
+import passport from 'passport'
+
+import database from './config/database'
+import User from './src/api/user/user.model'
+import Routes from './src/routes'
+
+let app = express() // create our app w/ express
 
 
 // configuration =================
@@ -29,14 +34,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride());
 
-var User = require('./src/api/user/user.model');
+//var User = require('./src/api/user/user.model');
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-require('./src/routes')(app);
+Routes(app)
 
  // listen (start app with node server.js) ======================================
  app.listen(process.env.PORT || 5000);
