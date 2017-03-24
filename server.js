@@ -30,6 +30,7 @@ app.use(passport.session());
 app.use(methodOverride());
 
 var User = require('./src/api/user/user.model');
+
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

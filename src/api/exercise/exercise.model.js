@@ -1,27 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Exercise = new Schema({
-  student: String,
+var exerciseSchema = new Schema({
   name: String,
-  repetitions: Number,
-  sets: Number,
-  group:String,
-  weekDay: {
-    type: [
-      { 
-        type: String,
-        enum: ["Sunday"
-          , "Monday"
-          , "Tuesday"
-          , "Wednesday"
-          , "Thursday"
-          , "Friday"
-          , "Saturday"]
-      }
-    ]
-  }
+  description: String
+
 });
 
+var Exercise = mongoose.model('Exercise', exerciseSchema);
 
-module.exports = mongoose.model('exercise', Exercise);
+module.exports = Exercise;

@@ -2,23 +2,25 @@
 
 Express/Mongodb based project.
 
+## DEVELOPMENT
+1º - `npm install`
 
-#running the serve
+2º - Instalar o [mongo](https://www.mongodb.com/) e:
+```
+$ mongod & (abre a :27017 sem bloquear o terminal)
+$ mongodb (acessa o repl)
+$ > use fitr  (acessa o db fitr)
+$ > db.users.find()
+[{_id:....}]
+```
+3º - `npm start`
 
-npm start
+## Tests
+gulp test
 
+# routes
 
+## User
+POST /user/login      `{username, password}`
 
-#routes
-
-##User
-POST /user/login
-POST /user/register
-GET /user/:userId/:exercises
-
-##Exercises
-
-GET /exercise/:exerciseId
-PUT /exercise/:exerciseId
-DELETE /exercise/:exerciseId
-POST /exercise/
+POST /user/register   `{username, password}` 

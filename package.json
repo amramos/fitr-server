@@ -7,8 +7,8 @@
     "node": "7.6.0"
   },
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js",
+    "test": "gulp test"
   },
   "author": "",
   "license": "ISC",
@@ -23,8 +23,21 @@
     "method-override": "^2.3.5",
     "mongoose": "^4.4.4",
     "morgan": "^1.7.0",
+    "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "chai-things": "^0.2.0",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^3.0.1",
+    "isparta": "^4.0.0",
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0",
+    "supertest": "^2.0.1"
   }
 }
