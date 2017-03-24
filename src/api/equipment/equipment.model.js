@@ -1,7 +1,8 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+import mongoose from 'mongoose'
 
-var equipmentSchema = new Schema({
+const Schema = mongoose.Schema
+
+const equipmentSchema = new Schema({
   name: String,
   brand: String,
   description: String,
@@ -11,8 +12,8 @@ var equipmentSchema = new Schema({
     }
   ]
 
-});
- 
-var Equipment = mongoose.model('Equipment', equipmentSchema);
+})
 
-module.exports = Equipment;
+const Equipment = mongoose.model('Equipment', equipmentSchema)
+
+export default Equipment

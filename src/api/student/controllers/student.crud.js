@@ -1,29 +1,25 @@
-var StudentUser = require('../student.model');
-var mongoose = require('mongoose');
-var passport = require('passport');
-var exports = module.exports = {};
+import StudentUser from '../student.model'
 
-exports.create = function(){
+export function create() {
   return new Promise((resolve, reject) => {
-    var newStudent = new StudentUser({});
-    newStudent.save(function(err, student){
+    const newStudent = new StudentUser({})
+    newStudent.save((err, student) => {
       if (err) {
-        return reject(err);
+        return reject(err)
       }
-      return resolve(student);
-    });
-
-  });
+      return resolve(student)
+    })
+  })
 }
 
-exports.get = function(id){
+export function get(id) {
   return new Promise((resolve, reject) => {
-    StudentUser.findById(id, function(err, student){
+    StudentUser.findById(id, (err, student) => {
       if (err) {
-        return reject(err);
+        return reject(err)
       }
-      return resolve(student);
+      return resolve(student)
     })
-  });
+  })
 }
 

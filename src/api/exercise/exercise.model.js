@@ -1,12 +1,12 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+import mongoose from 'mongoose'
 
-var exerciseSchema = new Schema({
+const Schema = mongoose.Schema
+
+const exerciseSchema = new Schema({
   name: String,
   description: String
+})
 
-});
+const Exercise = mongoose.model('Exercise', exerciseSchema)
 
-var Exercise = mongoose.model('Exercise', exerciseSchema);
-
-module.exports = Exercise;
+export default Exercise

@@ -1,14 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var user = require('./controllers/user.crud');
-var auth = require('./controllers/user.auth');
+import express from 'express'
+import * as user from './controllers/user.crud'
+import * as auth from './controllers/user.auth'
 
+const router = express.Router()
 
-router.post('/login', auth.login);
-router.post('/register', user.create);
+router.post('/login', auth.login)
+router.post('/register', user.create)
 
-//router.get('/:userId/exercises', user.getExercisesFromUser);
-
-module.exports = router;
-
+export default router
 

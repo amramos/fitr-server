@@ -1,58 +1,55 @@
-const Exercise = require('../exercise.model.js');
-const mongoose = require('mongoose');
-const passport = require('passport');
+import Exercise from '../exercise.model'
 
-exports.create = function(req, res){
-  var newExercise = new Exercise({
+export function create(req, res) {
+  const newExercise = new Exercise({
     name: req.body.name,
     description: req.body.description
-  });
-  newExercise.save(function(err, exercise){
-        if (err) {
-          return res.status(500).json({err: err})
-        }
-        return res.status(200).json(exercise)
-  });
-};
-
-exports.show = function(req, res){
-  var exerciseId = req.params.exerciseId;
-  Exercise.findById(exerciseId, function(err, exercise){
+  })
+  newExercise.save((err, exercise) => {
     if (err) {
-      return res.status(500).json({err: err})
+      return res.status(500).json(err)
     }
     return res.status(200).json(exercise)
   })
-};
+}
 
-exports.edit = function(req, res) {
+export function show(req, res) {
+  const exerciseId = req.params.exerciseId
+  Exercise.findById(exerciseId, (err, exercise) => {
+    if (err) {
+      return res.status(500).json(err)
+    }
+    return res.status(200).json(exercise)
+  })
+}
+
+export function edit(req, res) {
   const { exerciseId } = req.params
   const { name, description } = req.body
-  Exercise.findById(exerciseId, function(err, exercise){
+  Exercise.findById(exerciseId, (err, exercise) => {
     if (err) {
-      return res.status(500).json({err: err})
+      return res.status(500).json(err)
     }
-    exercise.name = name;
-    exercise.description = description;
+    exercise.name = name
+    exercise.description = description
 
-    exercise.save(function(err, exercise){
-      if (err) {
-        return res.status(500).json({err: err})
+    exercise.save((exerciseErr, savedExercise) => {
+      if (exerciseErr) {
+        return res.status(500).json(exerciseErr)
       }
-      return res.status(200).json(exercise)
+      return res.status(200).json(savedExercise)
     })
   })
-};
+}
 
-exports.delete = function(req, res){
-  var exerciseId = req.params.exerciseId;
-  Exercise.remove({ _id: exerciseId }, function(err) {
+export function remove(req, res) {
+  const exerciseId = req.params.exerciseId
+  Exercise.remove({ _id: exerciseId }, (err) => {
     if (err) {
-      return res.status(500).json({err: err})
+      return res.status(500).json(err)
     }
-    else {
-      return res.status(200).json('record deleted')
-    }
-  });
-};
-//todo: abstrair esses handlers de resposta
+    return res.status(200).json('record deleted')
+  })
+}
+// todo: abstrair esses handlers de resposta
+
