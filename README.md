@@ -23,6 +23,7 @@ $ > db.users.find()
 ```
 
 mLab
+
 `mongodb://devel:devel@ds141450.mlab.com:41450/fitr`
 
 ### 3 - Run
