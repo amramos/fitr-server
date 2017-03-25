@@ -30,21 +30,21 @@ export function edit(req, res) {
   const { trainingId } = req.params
   const { name, specialty, exercises } = req.body
 
-  Training.findById(trainingId, (err, training) => {
+  const updateQuery = {
+    name,
+    specialty,
+    exercises
+  }
+
+  const options = {
+    new: true
+  }
+
+  Training.findByIdAndUpdate(trainingId, updateQuery, options, (err, savedTraining) => {
     if (err) {
-      return res.status(500).json(err)
+      res.status(500).json(err)
     }
-
-    training.name = name
-    training.specialty = specialty
-    training.exercises = exercises
-
-    training.save((saveErr, savedTraining) => {
-      if (saveErr) {
-        return res.status(500).json(saveErr)
-      }
-      return res.status(200).json(savedTraining)
-    })
+    res.status(200).json(savedTraining)
   })
 }
 

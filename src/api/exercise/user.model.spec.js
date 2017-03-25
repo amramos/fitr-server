@@ -11,7 +11,7 @@ function genSampleExercise() {
   return sampleExercise
 }
 
-describe('Business Model', () => {
+describe('Exercise Model', () => {
   beforeEach(function () {
     genSampleExercise()
   })
