@@ -26,19 +26,22 @@ export function show(req, res) {
 export function edit(req, res) {
   const { exerciseId } = req.params
   const { name, description } = req.body
-  Exercise.findById(exerciseId, (err, exercise) => {
-    if (err) {
-      return res.status(500).json(err)
-    }
-    exercise.name = name
-    exercise.description = description
 
-    exercise.save((exerciseErr, savedExercise) => {
-      if (exerciseErr) {
-        return res.status(500).json(exerciseErr)
-      }
-      return res.status(200).json(savedExercise)
-    })
+  const updateQuery = {
+    name,
+    description
+  }
+
+  // faz o objeto retornado no findByIdAndUpdate ser o novo
+  const options = {
+    new: true
+  }
+
+  Exercise.findByIdAndUpdate(exerciseId, updateQuery, options, (err, savedExercise) => {
+    if (err) {
+      res.status(500).json(err)
+    }
+    res.status(200).json(savedExercise)
   })
 }
 
