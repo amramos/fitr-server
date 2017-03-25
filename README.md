@@ -1,4 +1,5 @@
 # fitr-server
+[![CircleCI](https://circleci.com/gh/tiago-pereira/fitr-server/tree/master.svg?style=svg)](https://circleci.com/gh/tiago-pereira/fitr-server/tree/master)
 
 Express/Mongodb based project.
 
